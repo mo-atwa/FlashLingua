@@ -1,0 +1,248 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+}
+.container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+h1 {
+  color: #2c3e50;
+}
+.tab {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.tab button {
+  background-color: inherit;
+  font-weight: bold;
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+.tab button:hover {
+  background-color: #ddd;
+}
+.tab button.active {
+  background-color: #2c3e50;
+  color: white;
+}
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: vertical;
+}
+input[type="text"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+button:hover {
+  background-color: #2980b9;
+}
+.flashcard {
+  position: absolute;
+  top: 40%;
+  left: 20px;
+  width: calc(100% - 80px);
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  padding-top: 40px;
+  margin-top: 20px;
+  min-height: 150px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  .close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    background: red;
+    padding: 5px;
+    border-radius: 8px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+.sentence {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.blank {
+  display: inline-block;
+  min-width: 60px;
+  height: 2px;
+  background-color: #000;
+  margin: 0 5px;
+  vertical-align: middle;
+  padding-top: 2px;
+}
+.answer-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.controls {
+  margin-top: 20px;
+}
+.result {
+  margin-top: 10px;
+  font-weight: bold;
+}
+.correct {
+  color: green;
+}
+.incorrect {
+  color: red;
+}
+.word-list {
+  text-align: left;
+  margin-top: 20px;
+  display: none;
+  margin-left: 20px;
+}
+
+.word-item {
+  background-color: #f8f9fa;
+  padding: 4px;
+  margin: 2px 0;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.word-item button {
+  background-color: #e74c3c;
+  padding: 5px 10px;
+}
+.word-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+.word-input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+.word-input-container input {
+  flex-grow: 1;
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+.word-input-container button {
+  background-color: #27ae60;
+  padding: 10px;
+}
+.word-chip {
+  display: inline-block;
+  background-color: #3498db;
+  color: white;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.word-chip:hover {
+  background-color: #e74c3c;
+}
+.words-container {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.category-container {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.flexable {
+  display: flex;
+}
+.category-select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.category-checkbox {
+  margin-right: 5px;
+}
+.category-label {
+  margin-right: 15px;
+  display: inline-flex;
+  align-items: center;
+}
+.category-management {
+  text-align: left;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+.category-list {
+  margin-top: 10px;
+}
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+.category-count {
+  background-color: #3498db;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-left: 5px;
+}
+.filter-info {
+  margin-top: 10px;
+  font-style: italic;
+  font-size: 14px;
+  color: #666;
+}
+

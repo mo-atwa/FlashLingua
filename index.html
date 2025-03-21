@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlashLingua</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>FlashLingua</h1>
+
+      <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'Add')">
+          Add Sentences
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'Categories')">
+          Categories
+        </button>
+        <button class="tablinks" onclick="openTab(event, 'Practice')">
+          Practice
+        </button>
+      </div>
+
+      <div id="Add" class="tabcontent" style="display: block">
+        <h2>Add New Sentence</h2>
+        <div class="category-container flexable">
+          <select id="categorySelect" class="category-select">
+            <option value="">-- Select Category --</option>
+          </select>
+          <div class="word-input-container">
+            <input
+              type="text"
+              id="newCategoryInput"
+              placeholder="Or create new category"
+            />
+            <button onclick="addNewCategory()">Create</button>
+          </div>
+        </div>
+
+        <textarea
+          id="sentenceInput"
+          placeholder="Enter sentence here"
+        ></textarea>
+
+        <div class="word-list-container">
+          <div class="word-input-container">
+            <input
+              type="text"
+              id="wordInput"
+              placeholder="Enter the word to memorize"
+            />
+            <button onclick="addWord()">Add</button>
+          </div>
+          <div id="selectedWords" class="words-container"></div>
+        </div>
+
+        <button onclick="addSentence()">Add Sentence</button>
+      </div>
+
+      <div id="Categories" class="tabcontent">
+        <h2>Category Management</h2>
+        <div class="category-management">
+          <div class="word-input-container">
+            <input
+              type="text"
+              id="categoryNameInput"
+              placeholder="New category name"
+            />
+            <button onclick="createCategory()">Create</button>
+          </div>
+
+          <h3>Existing Categories</h3>
+          <div id="categoryList" class="category-list"></div>
+        </div>
+      </div>
+
+      <div id="Practice" class="tabcontent">
+        <h2>Word Practice</h2>
+
+        <div class="category-container">
+          <h3>Select Categories for Practice</h3>
+          <div id="practiceCategories"></div>
+          <button class="Practice-categories" onclick="selectAllCategories()">
+            Select All
+          </button>
+          <button class="Practice-categories" onclick="deselectAllCategories()">
+            Deselect All
+          </button>
+          <button class="Practice-categories" onclick="startPractice()">
+            Start Practice
+          </button>
+          <div id="filterInfo" class="filter-info"></div>
+        </div>
+
+        <div class="flashcard">
+          <div onclick="flashcardClose()" class="close">Close</div>
+          <div id="flashcardSentence" class="sentence"></div>
+          <input
+            type="text"
+            id="answerInput"
+            class="answer-input"
+            placeholder="Enter the missing word"
+          />
+          <div id="resultMessage" class="result"></div>
+          <div class="controls">
+            <button onclick="checkAnswer()">Check</button>
+            <button onclick="showAnswer()">Show Answer</button>
+            <button onclick="nextCard()">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
+
