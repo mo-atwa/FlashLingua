@@ -2,7 +2,7 @@
 A dynamic English language learning tool built with **HTML, CSS, and JavaScript**. Master vocabulary and sentence structures through interactive flashcards and practice exercises.  
 
 🎮 **Live Demo:** [Try It Now](https://flashlingua.netlify.app/)  
-📂 **GitHub Repository:** [Here](https://github.com/yourusername/FlashLingua.git)
+📂 **GitHub Repository:** [Here](https://github.com/mo-atwa/FlashLingua)
 
 ## ✨ Features  
 - 🔠 **Interactive Flashcards** – Practice vocabulary and sentences with ease.  
@@ -20,7 +20,7 @@ A dynamic English language learning tool built with **HTML, CSS, and JavaScript*
 ## 📂 Installation & Setup  
 1. Clone the repository:  
    ```sh  
-   git clone https://github.com/yourusername/FlashLingua.git  
+   git clone https://github.com/mo-atwa/FlashLingua  
    cd FlashLingua
 
 ----------
