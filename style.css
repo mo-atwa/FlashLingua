@@ -1,82 +1,112 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Arial", sans-serif;
   background-color: #f5f5f5;
   padding: 20px;
   text-align: center;
+  line-height: 1.6;
 }
+
 .container {
   position: relative;
-  max-width: 600px;
+  max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
+
 h1 {
   color: #2c3e50;
+  margin-bottom: 1rem;
 }
+
+/* Tab navigation */
 .tab {
   overflow: hidden;
   background-color: #f1f1f1;
   border-radius: 5px;
   margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
 }
+
 .tab button {
   background-color: inherit;
   font-weight: bold;
   color: black;
-  float: left;
   border: none;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
-  font-size: 17px;
+  font-size: 1rem;
+  flex-grow: 1;
+  text-align: center;
 }
+
 .tab button:hover {
   background-color: #ddd;
 }
+
 .tab button.active {
   background-color: #2c3e50;
   color: white;
 }
+
 .tabcontent {
   display: none;
-  padding: 6px 12px;
+  padding: 15px;
   border-top: none;
 }
+
+/* Form elements */
 textarea {
   width: 100%;
   height: 100px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 5px;
   resize: vertical;
+  font-family: inherit;
+  font-size: 1rem;
 }
-input[type="text"] {
-  padding: 10px;
-  margin-bottom: 10px;
+
+input[type="text"], .category-select, .answer-input {
+  padding: 12px;
+  margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  font-size: 1rem;
 }
+
 button {
   background-color: #3498db;
   color: white;
-  padding: 10px 15px;
+  padding: 12px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
 }
+
 button:hover {
   background-color: #2980b9;
 }
+
+/* Flashcard styles */
 .flashcard {
   position: absolute;
-  top: 40%;
-  left: 20px;
+  top: 32%;
   width: calc(100% - 80px);
   background-color: #fff;
   border: 1px solid #ddd;
@@ -101,11 +131,13 @@ button:hover {
     font-weight: bold;
   }
 }
+
 .sentence {
   font-size: 18px;
   margin-bottom: 20px;
   line-height: 1.6;
 }
+
 .blank {
   display: inline-block;
   min-width: 60px;
@@ -115,130 +147,168 @@ button:hover {
   vertical-align: middle;
   padding-top: 2px;
 }
-.answer-input {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
+
 .controls {
   margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
 }
+
 .result {
-  margin-top: 10px;
+  margin-top: 15px;
   font-weight: bold;
+  padding: 10px;
+  border-radius: 5px;
 }
+
 .correct {
-  color: green;
+  color: #27ae60;
+  background-color: rgba(39, 174, 96, 0.1);
 }
+
 .incorrect {
-  color: red;
+  color: #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
 }
+
+/* Word list styles */
 .word-list {
   text-align: left;
   margin-top: 20px;
   display: none;
-  margin-left: 20px;
+  width: 100%;
 }
 
 .word-item {
   background-color: #f8f9fa;
-  padding: 4px;
-  margin: 2px 0;
+  padding: 10px;
+  margin: 5px 0;
   border-radius: 4px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 14px;
+  span {
+    width: 80%;
+  }
 }
+
 .word-item button {
   background-color: #e74c3c;
   padding: 5px 10px;
+  margin: 0;
+  font-size: 12px;
 }
+
 .word-list-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-top: 10px;
+  width: 100%;
 }
+
 .word-input-container {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   width: 100%;
+  gap: 6px;
 }
+
 .word-input-container input {
   flex-grow: 1;
-  margin-right: 10px;
   margin-bottom: 0;
+  min-width: 200px;
 }
+
 .word-input-container button {
   background-color: #27ae60;
-  padding: 10px;
+  white-space: nowrap;
 }
+
 .word-chip {
   display: inline-block;
   background-color: #3498db;
   color: white;
-  padding: 5px 10px;
+  padding: 8px 15px;
   margin: 5px;
   border-radius: 20px;
   cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
 }
+
 .word-chip:hover {
   background-color: #e74c3c;
 }
+
 .words-container {
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin: 5px 0;
   text-align: left;
+  display: flex;
+  flex-wrap: wrap;
 }
+
+.Practice-categories {
+  margin: 5px;
+}
+
+/* Category styles */
 .category-container {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   text-align: left;
 }
+
 .flexable {
   display: flex;
+  gap: 6px;
 }
-.category-select {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-.category-checkbox {
-  margin-right: 5px;
-}
+
 .category-label {
   margin-right: 15px;
   display: inline-flex;
   align-items: center;
 }
+
+.category-checkbox {
+  margin-right: 8px;
+}
+
 .category-management {
   text-align: left;
   margin-top: 20px;
   padding: 15px;
   background-color: #f8f9fa;
   border-radius: 5px;
+  width: 100%;
 }
+
 .category-list {
   margin-top: 10px;
 }
+
 .category-item {
   display: flex;
   justify-content: space-between;
-  padding: 8px;
+  padding: 10px;
   background-color: #fff;
   border-radius: 5px;
   margin: 5px 0;
+  align-items: center;
 }
+
 .category-count {
   background-color: #3498db;
   color: white;
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: 10px;
   font-size: 12px;
   margin-left: 5px;
 }
+
 .filter-info {
   margin-top: 10px;
   font-style: italic;
@@ -246,3 +316,91 @@ button:hover {
   color: #666;
 }
 
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  .tab button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .flashcard {
+    top: 38%;
+    left: 12px;
+    width: 95%;
+    padding: 50px 15px;
+  }
+
+  .result {
+    padding: 5px;
+    margin-top: 5px;
+  }
+  
+  .sentence {
+    font-size: 16px;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .controls button {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+@media (max-width: 624px) {
+  .flexable {
+    flex-wrap: wrap;
+  }
+  input[type="text"], .category-select, .answer-input {
+    margin-bottom: 5px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  .tab {
+    flex-direction: column;
+  }
+  
+  .tab button {
+    width: 100%;
+  }
+  
+  .word-input-container {
+    align-items: stretch;
+  }
+  
+  .word-input-container input {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .word-input-container button {
+    padding: 13px;
+    height: fit-content;
+  }
+  
+  .word-item {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .word-item button {
+    margin-top: 8px;
+    align-self: flex-end;
+  }
+}
