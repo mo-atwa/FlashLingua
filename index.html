@@ -10,6 +10,7 @@
     <div class="container">
       <h1>FlashLingua</h1>
 
+      <!-- Tab Navigation -->
       <div class="tab">
         <button class="tablinks active" onclick="openTab(event, 'Add')">
           Add Sentences
@@ -20,8 +21,28 @@
         <button class="tablinks" onclick="openTab(event, 'Practice')">
           Practice
         </button>
+        <button class="tablinks" onclick="openTab(event, 'WordFlashcards')">
+          Word Flashcards
+        </button>
+        <button class="showAll" onclick="toggleShowAll()">
+          <!-- From Uiverse.io by catraco -->
+          <label class="showmore">
+            <input type="checkbox" id="showAllCheckbox"/>
+            <svg
+              viewBox="0 0 512 512"
+              height="1em"
+              xmlns="http://www.w3.org/2000/svg"
+              class="chevron-down"
+            >
+              <path
+                d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+              ></path>
+            </svg>
+          </label>
+        </button>
       </div>
 
+      <!-- Add Sentences Tab -->
       <div id="Add" class="tabcontent" style="display: block">
         <h2>Add New Sentence</h2>
         <div class="category-container flexable">
@@ -43,12 +64,19 @@
           placeholder="Enter sentence here"
         ></textarea>
 
+        <!-- Word Input Section -->
         <div class="word-list-container">
           <div class="word-input-container">
             <input
               type="text"
               id="wordInput"
               placeholder="Enter the word to memorize"
+            />
+            <input
+              type="text"
+              id="translationInput"
+              dir="rtl"
+              placeholder="Enter Arabic translation"
             />
             <button onclick="addWord()">Add</button>
           </div>
@@ -58,6 +86,7 @@
         <button onclick="addSentence()">Add Sentence</button>
       </div>
 
+      <!-- Categories Tab -->
       <div id="Categories" class="tabcontent">
         <h2>Category Management</h2>
         <div class="category-management">
@@ -75,6 +104,7 @@
         </div>
       </div>
 
+      <!-- Practice Tab -->
       <div id="Practice" class="tabcontent">
         <h2>Word Practice</h2>
 
@@ -93,9 +123,12 @@
           <div id="filterInfo" class="filter-info"></div>
         </div>
 
+        <!-- Flashcard Section -->
         <div class="flashcard">
           <div onclick="flashcardClose()" class="close">Close</div>
-          <div id="flashcardSentence" class="sentence"></div>
+          <div class="flashcard-content">
+            <div id="flashcardSentence" class="sentence"></div>
+          </div>
           <input
             type="text"
             id="answerInput"
@@ -110,8 +143,32 @@
           </div>
         </div>
       </div>
+
+      <!-- Word Flashcards Tab -->
+      <div id="WordFlashcards" class="tabcontent">
+        <h2>Word Flashcards</h2>
+        <div class="flip-container" id="flashcard">
+          <div class="flipper">
+            <div class="box">
+              <div class="front">
+                <span id="flashcard--content_en"></span>
+              </div>
+              <div class="back">
+                <span id="flashcard--content_es"></span>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+        <input type="text" id="userInput" placeholder="Type the word here..." />
+        <!-- <input type="text" /> -->
+        <br>
+        <button onclick="nextWordFlashcard()">Next</button>
+        <!--  -->
+      </div>
     </div>
+    <footer><div class="footer">© <samp id="date"></samp> - All Right Reserved, <samp id="name">Atwa</samp></div></footer>
     <script src="main.js"></script>
+    <script src="practice.js"></script>
   </body>
 </html>
-
