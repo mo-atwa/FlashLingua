@@ -22,7 +22,11 @@ function resetShowAllCheckbox() {
 function hideInactiveTabs() {
   const tablinks = document.querySelectorAll(".tablinks");
   tablinks.forEach((tab) => {
-    if (!tab.classList.contains("active")) tab.style.display = "none";
+    if (!tab.classList.contains("active")) {
+      tab.style.display = "none";
+    } else {
+      tab.style.display = "block";
+    }
   });
 }
 
@@ -30,7 +34,11 @@ function toggleShowAll() {
   const showAllCheckbox = document.getElementById("showAllCheckbox");
   const tablinks = document.querySelectorAll(".tablinks");
   tablinks.forEach((tab) => {
-    tab.style.display = showAllCheckbox.checked ? "block" : "none";
+    if (tab.classList.contains("active")) {
+      tab.style.display = "block";
+    } else {
+      tab.style.display = showAllCheckbox.checked ? "block" : "none";
+    }
   });
 }
 
@@ -49,6 +57,8 @@ function openTab(evt, tabName) {
   // Show the selected tab content and mark it as active
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.classList.add("active");
+
+  document.getElementById("showAllCheckbox").checked = false;
 
   // Handle small screen behavior
   if (isSmallScreen()) hideInactiveTabs();

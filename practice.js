@@ -108,7 +108,6 @@ function nextCard() {
     <div class="translation">(${translation})</div>
   `;
 
-
   if (sentences[currentIndex].imageData) {
     const flashcardImage = document.getElementById("flashcardImage");
     if (flashcardImage) {
@@ -169,7 +168,11 @@ const backContent = document.getElementById("flashcard--content_es");
 // Flashcard control functions
 function nextWordFlashcard() {
   if (displayedWords.length === allWords.length) {
-    showPopup("You have practiced all the words! Refreshing the list...");
+    const result = allWords
+      .map((item) => `${item.word}: ${item.translation}`)
+      .join(",\n");
+    console.log(result);
+    showPopup(`You have practiced all the words! Refreshing the list...`);
     updateAllWords();
   }
 
@@ -192,7 +195,9 @@ function nextWordFlashcard() {
   backContent.textContent = currentWordObj.translation;
   flashcardContainer.classList.remove("flipped");
 
-  const flashcardElement = document.querySelector("#WordFlashcards .flip-container");
+  const flashcardElement = document.querySelector(
+    "#WordFlashcards .flip-container"
+  );
   if (flashcardElement) {
     flashcardElement.style.display = "flex";
   }
@@ -235,7 +240,9 @@ function checkUserInput() {
   if (userInput === correctWord) {
     showPopup("Correct! The word matches.");
   } else {
-    showPopup(`Incorrect. You typed: "${userInput}". The correct word is: "${correctWord}".`);
+    showPopup(
+      `Incorrect. You typed: "${userInput}". The correct word is: "${correctWord}".`
+    );
   }
 
   // Clear the input field after checking
