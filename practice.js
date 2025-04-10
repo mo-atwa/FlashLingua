@@ -2,7 +2,7 @@
 function startPractice() {
   const flashcardElement = document.querySelector(".flashcard");
   if (selectedCategories.length === 0) {
-    alert("Please select at least one category for practice");
+    showPopup("Please select at least one category for practice");
     return;
   }
 
@@ -20,7 +20,7 @@ function startPractice() {
   });
 
   if (practicePool.length === 0) {
-    alert("No sentences found in the selected categories");
+    showPopup("No sentences found in the selected categories");
     return;
   }
 
@@ -169,12 +169,12 @@ const backContent = document.getElementById("flashcard--content_es");
 // Flashcard control functions
 function nextWordFlashcard() {
   if (displayedWords.length === allWords.length) {
-    alert("You have practiced all the words! Refreshing the list...");
+    showPopup("You have practiced all the words! Refreshing the list...");
     updateAllWords();
   }
 
   if (allWords.length === 0) {
-    alert("No words available for practice");
+    showPopup("No words available for practice");
     return;
   }
 
@@ -233,9 +233,9 @@ function checkUserInput() {
   const correctWord = frontContent.textContent.trim(); // Get the word on the front of the flashcard
 
   if (userInput === correctWord) {
-    alert("Correct! The word matches.");
+    showPopup("Correct! The word matches.");
   } else {
-    alert(`Incorrect. You typed: "${userInput}". The correct word is: "${correctWord}".`);
+    showPopup(`Incorrect. You typed: "${userInput}". The correct word is: "${correctWord}".`);
   }
 
   // Clear the input field after checking

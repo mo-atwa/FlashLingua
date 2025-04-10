@@ -8,6 +8,15 @@
   </head>
   <body>
     <div class="container">
+      <!-- Popup container -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <span id="popup-message"></span>
+          <br>
+          <button id="popup-close">OK</button>
+        </div>
+      </div>
+
       <h1>FlashLingua</h1>
 
       <!-- Tab Navigation -->
@@ -27,7 +36,7 @@
         <button class="showAll" onclick="toggleShowAll()">
           <!-- From Uiverse.io by catraco -->
           <label class="showmore">
-            <input type="checkbox" id="showAllCheckbox"/>
+            <input type="checkbox" id="showAllCheckbox" />
             <svg
               viewBox="0 0 512 512"
               height="1em"
@@ -158,17 +167,23 @@
               </div>
             </div>
           </div>
-          <br>
+          <br />
         </div>
         <input type="text" id="userInput" placeholder="Type the word here..." />
         <!-- <input type="text" /> -->
-        <br>
+        <br />
         <button onclick="nextWordFlashcard()">Next</button>
         <!--  -->
       </div>
     </div>
-    <footer><div class="footer">© <samp id="date"></samp> - All Right Reserved, <samp id="name">Atwa</samp></div></footer>
+    <footer>
+      <div class="footer">
+        © <samp id="date"></samp> - All Right Reserved,
+        <samp id="name">Atwa</samp>
+      </div>
+    </footer>
     <script src="main.js"></script>
     <script src="practice.js"></script>
+    <script src="popup.js"></script>
   </body>
 </html>

@@ -104,8 +104,8 @@ function setupAutoLanguageInputs() {
     b: "لا",
     n: "ى",
     m: "ة",
-    "]": "ج",
-    "[": "د",
+    "]": "د",
+    "[": "ج",
     "'": "ط",
     ";": "ك",
     "/": "ظ",
@@ -194,23 +194,24 @@ function setupInputListeners() {
 }
 
 // ==================== Word and Category Management ====================
+
 function addWord() {
   const word = document.getElementById("wordInput").value.trim();
   const translation = document.getElementById("translationInput").value.trim();
   const sentence = document.getElementById("sentenceInput").value.trim();
 
   if (!word || !translation || !sentence) {
-    alert("Please fill in all fields.");
+    showPopup("Please fill in all fields.");
     return;
   }
 
   if (!sentence.includes(word)) {
-    alert("The sentence must contain the selected word.");
+    showPopup("The sentence must contain the selected word.");
     return;
   }
 
   if (selectedWords.some((w) => w.word === word)) {
-    alert("This word is already added.");
+    showPopup("This word is already added.");
     return;
   }
 
@@ -243,12 +244,12 @@ function addNewCategory() {
 
   const categoryName = categoryInput.value.trim();
   if (!categoryName) {
-    alert("Please enter a category name.");
+    showPopup("Please enter a category name.");
     return;
   }
 
   if (categories.some((cat) => cat.name === categoryName)) {
-    alert("This category already exists.");
+    showPopup("This category already exists.");
     return;
   }
 
@@ -265,12 +266,12 @@ function createCategory() {
 
   const categoryName = categoryNameInput.value.trim();
   if (!categoryName) {
-    alert("Please enter a category name.");
+    showPopup("Please enter a category name.");
     return;
   }
 
   if (categories.some((cat) => cat.name === categoryName)) {
-    alert("This category already exists.");
+    showPopup("This category already exists.");
     return;
   }
 
@@ -519,17 +520,17 @@ function addSentence() {
   const category = categorySelect.value;
 
   if (!sentence) {
-    alert("Please enter a sentence.");
+    showPopup("Please enter a sentence.");
     return;
   }
 
   if (selectedWords.length === 0) {
-    alert("Please add at least one word to memorize.");
+    showPopup("Please add at least one word to memorize.");
     return;
   }
 
   if (!category) {
-    alert("Please select a category.");
+    showPopup("Please select a category.");
     return;
   }
 
