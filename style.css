@@ -19,6 +19,7 @@ body {
 
 body {
   position: relative;
+  height: fit-content;
   font-family: "Arial", sans-serif;
   background-color: #f5f5f5;
   padding: 20px;
@@ -31,6 +32,7 @@ body {
   max-width: 1000px;
   width: 100%;
   margin: 0 auto;
+  margin-bottom: 30px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -121,6 +123,10 @@ h3 {
   display: none;
   padding: 15px;
   border-top: none;
+}
+
+input:not(#answerInput) {
+  width: fit-content !important;
 }
 
 /* Form elements */
@@ -359,7 +365,7 @@ button:hover {
 }
 
 .word-item span {
-  width: 80%;
+  width: fit-content;
 }
 
 .word-item-content {
@@ -398,6 +404,7 @@ button:hover {
   flex-grow: 1;
   margin-bottom: 0;
   min-width: 200px;
+  width: 0 !important;
 }
 
 .word-input-container button {
@@ -734,7 +741,7 @@ button:hover {
 
 /* start footer */
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   left: 0;
@@ -758,7 +765,7 @@ footer .footer samp#name {
 @media (max-width: 480px) {
   footer {
     padding: 10px;
-    margin: -15px 0;
+    margin: 0;
   }
   footer .footer {
     font-size: 12px;
